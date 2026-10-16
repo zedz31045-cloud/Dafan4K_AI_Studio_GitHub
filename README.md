@@ -1,2 +1,26 @@
-# Dafan4K_AI_Studio_GitHub
-Flutter project created by KLENCOD IDE
+# Dafan 4K AI Studio (Android)
+
+مشروع Android Java قابل للبناء عبر GitHub Actions. يوفر اختيار صورة من الجهاز، معاينة، ورفع أبعاد الصورة إلى 4K وحفظ نسخة جديدة.
+
+## مهم بشأن الذكاء الاصطناعي
+هذه النسخة الأولية تنفذ تكبيرًا فعليًا للصورة باستخدام Bitmap interpolation في Android، وليست نموذج Super-Resolution AI مدرّبًا. لا تدّعي استعادة تفاصيل غير موجودة. لا يتضمن الإصدار الحالي تحسين الفيديو أو توليد إطارات AI. يلزم إضافة نموذج TFLite/ONNX مرخّص ومختبر لتحقيق ذلك.
+
+## البناء عبر GitHub
+1. أنشئ مستودعًا جديدًا على GitHub.
+2. ارفع جميع محتويات هذا المجلد إلى جذر المستودع (لا ترفع ملف ZIP وحده).
+3. افتح تبويب **Actions** وفعّل GitHub Actions إذا طلب ذلك.
+4. شغّل workflow باسم **Build Android APK** أو ادفع commit جديدًا.
+5. بعد نجاح البناء، افتح تشغيل workflow ثم **Artifacts** ونزّل `Dafan4K-debug-apk`.
+6. فك الضغط وثبّت APK على هاتف Android. قد تحتاج السماح بالتثبيت من هذا المصدر.
+
+## بناء محلي
+يتطلب JDK 17 وAndroid SDK (platform 35 وBuild Tools 35.0.0) وGradle 8.9:
+```bash
+gradle assembleDebug
+```
+الـ APK يظهر في `app/build/outputs/apk/debug/app-debug.apk`.
+
+## القيود
+- يحتاج تصدير 4K إلى ذاكرة كافية؛ الصور الكبيرة قد تسبب ضغطًا على الذاكرة.
+- رفع الدقة ليس مساويًا لتحسين AI.
+- لا يوجد حاليًا محرر فيديو أو استيفاء إطارات.
